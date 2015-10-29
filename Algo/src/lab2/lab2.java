@@ -16,14 +16,9 @@ public class lab2 {
 		System.out.println(Arrays.toString(c));
 		
 		List<Integer> X = new ArrayList<Integer>();
+		X.add(1);
 		X.add(2);
-		X.add(4);
-		X.add(8);
-		X.add(11);
-		X.add(13);
-		X.add(21);
-		X.add(23);
-		X.add(25);
+		X.add(3);
 		System.out.println(PowerSet(X));
 	}
 	public static int[] merge(int[] a, int b[])
@@ -63,19 +58,16 @@ public class lab2 {
 		}
 		
 		while(!X.isEmpty()) {
-			
-			//Integer f = X.remove(0);
 			int f = X.remove(0);
 			
-			for(Set<Integer> x : P) {			
-				T.add(x);
-			}
-			for(Set<Integer> x : T) {
+			T = new ArrayList<Set<Integer>>();
+			for(Set<Integer> x : P) {
 				S = new HashSet<Integer>();
 				S.add(f);
 				S.addAll(x);
-				P.add(S);					
-			}					
+				T.add(S);					
+			}	
+			P.addAll(T);
 		}			
 		return P;	
 	}
